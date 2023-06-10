@@ -1,10 +1,17 @@
+""" Linked list implementation in Python """
+
+
 class Node:
+    """Node class for linked list"""
+
     def __init__(self, value):
         self.value = value
         self.next = None
 
 
 class LinkedList:
+    """Linked list class"""
+
     def __init__(self, value):
         new_node = Node(value)
         self.head = new_node
@@ -12,12 +19,14 @@ class LinkedList:
         self.length = 1
 
     def print_list(self):
+        """Print all the values in the linked list"""
         temp = self.head
         while temp is not None:
             print(temp.value)
             temp = temp.next
 
     def append(self, value):
+        """Add a new node to the end of the linked list"""
         new_node = Node(value)
         if self.length == 0:
             self.head = new_node
@@ -29,6 +38,7 @@ class LinkedList:
         return True
 
     def pop(self):
+        """Remove the last node from the linked list"""
         if self.length == 0:
             return None
         temp = self.head
@@ -45,6 +55,7 @@ class LinkedList:
         return temp
 
     def prepend(self, value):
+        """Add a new node to the beginning of the linked list"""
         new_node = Node(value)
         if self.length == 0:
             self.head = new_node
@@ -56,6 +67,7 @@ class LinkedList:
         return True
 
     def pop_first(self):
+        """Remove the first node from the linked list"""
         if self.length == 0:
             return None
         temp = self.head
@@ -67,6 +79,7 @@ class LinkedList:
         return temp
 
     def get(self, index):
+        """Get the node at the given index"""
         if index < 0 or index >= self.length:
             return None
         temp = self.head
@@ -75,6 +88,7 @@ class LinkedList:
         return temp
 
     def set_value(self, index, value):
+        """Set the value of the node at the given index"""
         temp = self.get(index)
         if temp:
             temp.value = value
@@ -82,6 +96,7 @@ class LinkedList:
         return False
 
     def insert(self, index, value):
+        """Insert a new node at the given index"""
         if index < 0 or index > self.length:
             return False
         if index == 0:
@@ -96,6 +111,7 @@ class LinkedList:
         return True
 
     def remove(self, index):
+        """Remove the node at the given index"""
         if index < 0 or index >= self.length:
             return None
         if index == 0:
@@ -110,6 +126,7 @@ class LinkedList:
         return temp
 
     def reverse(self):
+        """Reverse the linked list"""
         temp = self.head
         self.head = self.tail
         self.tail = temp
@@ -122,6 +139,7 @@ class LinkedList:
             temp = after
 
     def find_middle_node(self):
+        """Find the middle node of the linked list"""
         slow = self.head
         fast = self.head
 
