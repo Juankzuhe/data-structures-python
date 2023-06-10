@@ -149,7 +149,7 @@ class LinkedList:
         return slow
 
     def has_loop(self):
-        """ Check if the linked list has a loop """
+        """Check if the linked list has a loop"""
         slow = self.head
         fast = self.head
 
@@ -160,6 +160,22 @@ class LinkedList:
             if slow == fast:
                 return True
         return False
+
+
+def find_kth_from_end(ll, k):
+    """Find the kth node from the end of the linked list"""
+    slow = fast = ll.head
+
+    for _ in range(k):
+        if fast is None:
+            return None
+        fast = fast.next
+
+    while fast:
+        slow = slow.next
+        fast = fast.next
+
+    return slow
 
 
 my_linked_list = LinkedList(1)
